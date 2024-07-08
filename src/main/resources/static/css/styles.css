@@ -8,13 +8,14 @@ body {
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
     overflow: hidden;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 h1, h2, h3 {
@@ -23,37 +24,38 @@ h1, h2, h3 {
 
 h1 {
     color: #0056b3;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Enhanced text readability */
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero {
     position: relative;
-    height: 50vh;
-    background-image: url('/images/updated-hero-image.jpg'); /* Updated image path */
+    height: 40vh;
+    background-image: url('/images/updated-hero-image.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px; /* Add space below the hero section */
 }
 
 .hero-text {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     text-align: center;
-    padding: 20px;
-    width: 90%;
+    padding: 15px;
+    width: 80%;
 }
 
 nav {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: #fff; /* Ensure solid background */
     width: 100%;
     padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1010; /* Higher than other elements */
 }
 
 nav ul {
@@ -83,6 +85,10 @@ nav ul li a.active, nav ul li a:hover {
     margin-bottom: 20px;
 }
 
+.service:hover, .event:hover {
+    transform: translateY(-5px);
+}
+
 footer {
     background-color: #f4f4f4;
     text-align: center;
@@ -91,98 +97,17 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-    .container, .hero, nav ul {
-        width: 100%; /* Full width on small screens */
-    }
     .hero {
-        height: 30vh; /* Smaller height for the hero section */
+        height: 30vh;
     }
+
     h1 {
-        font-size: 1.5em; /* Smaller font size for headers */
+        font-size: 1.5em;
     }
-    .hero-text {
+
+    .hero-text, .service, .event {
         padding: 10px;
-        width: 95%; /* Narrower text box for hero text */
+        width: 100%;
     }
 }
 
-@media (max-width: 768px) {
-    .hero {
-        height: auto; /* Auto-adjust height based on content */
-    }
-    .hero-text {
-        padding: 10px; /* Consistent padding */
-        font-size: smaller; /* Smaller font size for readability */
-    }
-    .services-overview, .upcoming-events {
-        padding: 5px; /* Reduced padding around sections */
-    }
-    .service, .event {
-        margin-bottom: 10px; /* Reduced margin between items */
-    }
-}
-
-
-.container {
-    width: 95%; /* Use a percentage width for responsiveness */
-    max-width: 960px; /* Optional: max width for larger screens */
-    margin: auto; /* Center align the container */
-}
-
-.services-overview, .upcoming-events {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically on small screens */
-}
-
-.service-card, .event-card {
-    background-color: #ffffff; /* White background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
-    transition: transform 0.3s ease-in-out; /* Smooth transform effect */
-    margin-bottom: 20px; /* Spacing between cards */
-    overflow: hidden; /* Ensures no overflow */
-}
-
-.service-card a, .event-card a {
-    display: block; /* Makes the link block-level */
-    padding: 20px; /* Padding inside the card */
-    color: inherit; /* Inherits text color from parent */
-    text-decoration: none; /* Removes underline from links */
-}
-
-.service-card:hover, .event-card:hover {
-    transform: scale(1.05); /* Slightly enlarges the card on hover */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Darker shadow for 3D effect */
-}
-
-.service-card img, .event-card img {
-    width: 100%; /* Ensures the image covers the card */
-    height: auto; /* Keeps the aspect ratio of the image */
-}
-
-.slides {
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-}
